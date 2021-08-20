@@ -2,7 +2,7 @@
 import React, { CSSProperties } from 'react'
 import { Colors } from '../Colors'
 import { Menu, GitHub, LinkedIn } from '@material-ui/icons'
-import { ReactComponent as StackOverflow } from './images/iconmonstr-stackoverflow-1.svg'
+import { ReactComponent as StackOverflow } from '../images/stackoverflow.svg'
 import { Button } from '@material-ui/core'
 
 
@@ -20,7 +20,7 @@ export const MenuColumn : React.FC<MenuProps> = ({ parentStyle }) => {
             display: 'flex',
             flexGrow: 1,
             flexDirection: 'column' as 'column',
-            justifyContent: 'center',
+            alignContent: 'center',
         }
     }
     return <div style={parentStyle}>

@@ -12,17 +12,17 @@ export const AboutColumn : React.FC<AboutProps> = ({ parentStyle }) => {
             textAlign: 'left' as 'left',
             color: Colors.fontGray,
             fontFamily: 'Roboto',
-            flexGrow: 1,
+            maxHeight: 810, // 850 - 20*2 padding
             overflowY: 'scroll' as 'scroll'
         },
         h1: {
-            fontSize: '3vw',
+            fontSize: '30',
         },
         p: {
-            fontSize: '2.5vw',
+            fontSize: '22',
         },
         li: {
-            fontSize: '2vw',
+            fontSize: '22',
             marginLeft: 30
         }
     }
@@ -35,6 +35,31 @@ export const AboutColumn : React.FC<AboutProps> = ({ parentStyle }) => {
             <li style={styles.li}>Flutter</li>
             <li style={styles.li}>React Native</li>
             <li style={styles.li}>React</li>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
             <p style={styles.p}>...</p>
             <p style={styles.p}>...</p>
             <p style={styles.p}>...</p>

@@ -1,7 +1,7 @@
 
 import React, { CSSProperties } from 'react'
 import { Colors } from '../Colors'
-import image from '../images/Group 14.png'
+import image from '../images/profile.png'
 import '@fontsource/roboto'
 
 type PictureProps = {
@@ -21,20 +21,21 @@ export const PictureColumn : React.FC<PictureProps> = ({ parentStyle }) => {
             backgroundColor: Colors.backgroundTransparentGray,
             fontFamily: 'Roboto'
         },
-        image:{
-            display: 'flex',
-            width: '100%',
-            margin:0
-        }
     }
     return <div style={parentStyle}>
-        <div style={{ position: 'relative'}}>
-            <img src={image} style={styles.image} alt='User image'/>
+        <div style={{ 
+            position: 'relative',
+            height: '100%' 
+            //backgroundImage: `url(${image})`,
+            //backgroundSize: 'cover',
+            //backgroundColor: '#FFFF00',
+        }}>
             <div style={styles.profession}>
-                <p style={{fontSize: '5vh'}}>Software Developer</p>
-                <p style={{fontSize: '3vh'}}>Based in Helsinki</p>
-                <p style={{fontSize: '3vh'}}>Android, iOS, Flutter, React, React Native</p>
-            </div>
+                <p style={{fontSize: '22'}}>Software Developer</p>
+                <p style={{fontSize: '16'}}>Based in Helsinki</p>
+                <p style={{fontSize: '16'}}>Android, iOS, Flutter, React, React Native</p>
+            </div> 
         </div>
     </div>
 }
+            //<img src={image} style={styles.image} alt='User image'/>
