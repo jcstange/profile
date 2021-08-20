@@ -6,8 +6,9 @@ import { increment, decrement } from './actions/actions'
 import { Button } from '@material-ui/core'
 import image from './images/Group 14.png'
 import './index.css'
-import { fontFamily } from '@material-ui/system'
-import { Menu } from '@material-ui/icons'
+import { Menu, GitHub, LinkedIn } from '@material-ui/icons'
+import { ReactComponent as StackOverflow } from './images/iconmonstr-stackoverflow-1.svg'
+import '@fontsource/roboto'
 
 
 const Colors = {
@@ -21,15 +22,16 @@ export const App : React.FC = () => {
     
     const styles = {
         app: {
-            display: "flex"
+            display: "flex",
+            overflowX: 'scroll' as 'scroll'
         },
         menuColumn: {
-            width: '5%',
+            width: '4em',
             backgroundColor: '#555555',
             justifyContent: 'center'
         },
         pictureColumn: {
-            flex: 3,
+            flex:7,
             backgroundColor: '#555555',
         },
         aboutColumn: {
@@ -42,10 +44,10 @@ export const App : React.FC = () => {
     //const dispatch: Dispatch<any> = useAppDispatch()
 
     return <div style={styles.app}>
-        <MenuColumn parentStyle= {styles.menuColumn} />
-        <PictureColumn parentStyle={styles.pictureColumn}/>
-        <AboutColumn parentStyle={styles.aboutColumn}/>
-    </div>
+            <MenuColumn parentStyle= {styles.menuColumn} />
+            <PictureColumn parentStyle={styles.pictureColumn}/>
+            <AboutColumn parentStyle={styles.aboutColumn}/>
+        </div>
 
 }
 
@@ -58,10 +60,34 @@ export const MenuColumn : React.FC<MenuProps> = ({ parentStyle }) => {
         button:{
             color:'#fff',
             padding: 20
+        },
+        links: {
+            display: 'flex',
+            flexGrow: 1,
+            flexDirection: 'column' as 'column',
+            justifyContent: 'center',
         }
     }
     return <div style={parentStyle}>
-        <Button style={styles.button}><Menu /></Button>
+        <Button style={styles.button}>
+            <Menu /></Button>
+        <div style={styles.links}>
+            <Button 
+                style={styles.button}
+                onClick={() => window.open("https://github.com/jcstange")}>
+                <GitHub />
+            </Button>
+            <Button 
+                style={styles.button}
+                onClick={() => window.open("https://www.linkedin.com/in/joao-cesar-stange-0a159223/")}>
+                <LinkedIn />
+            </Button>
+            <Button 
+                style={{...styles.button, filter: 'invert(100%)'}}
+                onClick={() => window.open("https://stackoverflow.com/users/7047737/j-stange")}>
+                <StackOverflow />
+            </Button>
+        </div>
     </div>
 }
 
@@ -69,17 +95,22 @@ type PictureProps = {
     parentStyle: CSSProperties 
 }
 export const PictureColumn : React.FC<PictureProps> = ({ parentStyle }) => {
-    const styles  = {
+    const styles = {
         profession: {
             position: 'absolute' as 'absolute',
             textAlign: 'center' as 'center',
-            color: '#EAEAEA',
-            left: '20%',
-            bottom: '8%',
-            //tranlate: 'transform(-20%,-50%)',
+            color: '#fff',
+            left: '5%',
+            bottom: '4%',
+            right: '5%',
+            opacity: 0.7,
+            padding: 20,
+            backgroundColor:'#1a1a1a',
             fontFamily: 'Roboto'
         },
         image:{
+            display: 'flex',
+            width: '100%',
             margin:0
         }
     }
@@ -87,9 +118,9 @@ export const PictureColumn : React.FC<PictureProps> = ({ parentStyle }) => {
         <div style={{ position: 'relative'}}>
             <img src={image} style={styles.image} alt='User image'/>
             <div style={styles.profession}>
-                <h3>Software Developer</h3>
-                <h5>Based in Helsinki</h5>
-                <h5>Android, iOS, Flutter, React, React Native</h5>
+                <p style={{fontSize: '5vh'}}>Software Developer</p>
+                <p style={{fontSize: '3vh'}}>Based in Helsinki</p>
+                <p style={{fontSize: '3vh'}}>Android, iOS, Flutter, React, React Native</p>
             </div>
         </div>
     </div>
@@ -99,22 +130,45 @@ type AboutProps = {
     parentStyle: CSSProperties 
 }
 export const AboutColumn : React.FC<AboutProps> = ({ parentStyle }) => {
-    const styles  = {
+    const styles = {
         aboutme: {
             textAlign: 'left' as 'left',
             color: '#EAEAEA',
-            fontFamily: 'Roboto'
+            fontFamily: 'Roboto',
+            flexGrow: 1,
+            overflowY: 'scroll' as 'scroll'
         },
+        h1: {
+            fontSize: '3vw',
+        },
+        p: {
+            fontSize: '2.5vw',
+        },
+        li: {
+            fontSize: '2vw',
+            marginLeft: 30
+        }
     }
     return <div style={ parentStyle }>
         <div style={styles.aboutme}>
-            <h1>About me: </h1>
-            <p>Senior Software Developer and Freelancer</p>
-            <li style={{marginLeft: 30}}>Android</li>
-            <li style={{marginLeft: 30}}>iOS</li>
-            <li style={{marginLeft: 30}}>Flutter</li>
-            <li style={{marginLeft: 30}}>React Native</li>
-            <li style={{marginLeft: 30}}>React</li>
+            <h1 style= {styles.h1}>About me </h1>
+            <p style={styles.p}>Senior Software Developer and Freelancer</p>
+            <li style={styles.li}>Android</li>
+            <li style={styles.li}>iOS</li>
+            <li style={styles.li}>Flutter</li>
+            <li style={styles.li}>React Native</li>
+            <li style={styles.li}>React</li>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
+            <p style={styles.p}>...</p>
         </div>
     </div>
 
