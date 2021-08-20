@@ -4,16 +4,19 @@ import { Colors } from '../Colors'
 import '@fontsource/roboto'
 
 type AboutProps = {
-    parentStyle: CSSProperties 
+    parentStyle: CSSProperties,
+    isMobile: boolean
 }
-export const AboutColumn : React.FC<AboutProps> = ({ parentStyle }) => {
+export const AboutColumn : React.FC<AboutProps> = ({ parentStyle, isMobile }) => {
+
     const styles = {
         aboutme: {
             textAlign: 'left' as 'left',
             color: Colors.fontGray,
             fontFamily: 'Roboto',
-            maxHeight: 810, // 850 - 20*2 padding
-            overflowY: 'scroll' as 'scroll'
+            margin:20,
+            maxHeight: isMobile ? 5000 : 810, // 850 - 20*2 padding
+            overflowY: isMobile ? 'visible' as 'visible' : 'scroll' as 'scroll'
         },
         h1: {
             fontSize: '30',
@@ -26,6 +29,7 @@ export const AboutColumn : React.FC<AboutProps> = ({ parentStyle }) => {
             marginLeft: 30
         }
     }
+    
     return <div style={ parentStyle }>
         <div style={styles.aboutme}>
             <h1 style= {styles.h1}>About me </h1>

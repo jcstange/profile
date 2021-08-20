@@ -5,9 +5,11 @@ import image from '../images/profile.png'
 import '@fontsource/roboto'
 
 type PictureProps = {
-    parentStyle: CSSProperties 
+    parentStyle: CSSProperties,
+    isMobile: boolean 
 }
-export const PictureColumn : React.FC<PictureProps> = ({ parentStyle }) => {
+export const PictureColumn : React.FC<PictureProps> = ({ parentStyle, isMobile }) => {
+
     const styles = {
         profession: {
             position: 'absolute' as 'absolute',
@@ -22,13 +24,11 @@ export const PictureColumn : React.FC<PictureProps> = ({ parentStyle }) => {
             fontFamily: 'Roboto'
         },
     }
+
     return <div style={parentStyle}>
         <div style={{ 
             position: 'relative',
             height: '100%' 
-            //backgroundImage: `url(${image})`,
-            //backgroundSize: 'cover',
-            //backgroundColor: '#FFFF00',
         }}>
             <div style={styles.profession}>
                 <p style={{fontSize: '22'}}>Software Developer</p>
@@ -38,4 +38,3 @@ export const PictureColumn : React.FC<PictureProps> = ({ parentStyle }) => {
         </div>
     </div>
 }
-            //<img src={image} style={styles.image} alt='User image'/>

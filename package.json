@@ -1,5 +1,5 @@
 {
-  "name": "counter_redux",
+  "name": "profile",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -40,5 +40,5 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://jcstange.github.io/redux/"
+  "homepage": "https://jcstange.github.io/profile/"
 }

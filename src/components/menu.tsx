@@ -1,16 +1,18 @@
 
 import React, { CSSProperties } from 'react'
 import { Colors } from '../Colors'
-import { Menu, GitHub, LinkedIn } from '@material-ui/icons'
+import { GitHub, LinkedIn } from '@material-ui/icons'
 import { ReactComponent as StackOverflow } from '../images/stackoverflow.svg'
 import { Button } from '@material-ui/core'
 
 
 type MenuProps = {
-    parentStyle: CSSProperties 
+    parentStyle: CSSProperties,
+    isMobile: boolean 
 }
 
-export const MenuColumn : React.FC<MenuProps> = ({ parentStyle }) => {
+export const MenuColumn : React.FC<MenuProps> = ({ parentStyle, isMobile }) => {
+
     const styles = {
         button:{
             color: Colors.white,
@@ -19,13 +21,16 @@ export const MenuColumn : React.FC<MenuProps> = ({ parentStyle }) => {
         links: {
             display: 'flex',
             flexGrow: 1,
-            flexDirection: 'column' as 'column',
+            flexDirection: isMobile ? 'row' as 'row' : 'column' as 'column',
             alignContent: 'center',
+            alignItems: 'center',
+            alignSelf: 'center',
+            verticalAlign: 'center',
+            justifyContent: 'center'
         }
     }
+
     return <div style={parentStyle}>
-        <Button style={styles.button}>
-            <Menu /></Button>
         <div style={styles.links}>
             <Button 
                 style={styles.button}
