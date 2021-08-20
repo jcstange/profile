@@ -1,7 +1,6 @@
 
 import React, { CSSProperties } from 'react'
 import { Colors } from '../Colors'
-import image from '../images/profile.png'
 import '@fontsource/roboto'
 
 type PictureProps = {
