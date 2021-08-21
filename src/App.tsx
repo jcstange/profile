@@ -14,15 +14,15 @@ export const App : React.FC = () => {
     //const number: number = useAppSelector((state: CombinedState<{ incrementReducer: IncrementState}>) => state.incrementReducer.number)
 
     const { width } = useWindowDimensions()
-    const isMobile = width < 767
+    const isMobile = width < 768
 
     const styles = {
         app: {
-            display: 'flex',
+            display: isMobile ? 'flex-inline' : 'flex',
             flexDirection: isMobile ? 'column' as 'column' : 'row' as 'row',
             justifyContent: 'center',
-            maxHeight: isMobile ? 5000 : 1000,
-            minWidth: 768,
+            height: isMobile ? 'auto' : 1000,
+            minWidth: 767,
             minHeight: 500,
         },
         menuColumn: {
