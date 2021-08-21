@@ -18,15 +18,16 @@ export const App : React.FC = () => {
 
     const styles = {
         app: {
-            display: isMobile ? 'flex-inline' : 'flex',
+            display: isMobile ? 'inline-flex' : 'flex',
             flexDirection: isMobile ? 'column' as 'column' : 'row' as 'row',
             justifyContent: 'center',
             height: isMobile ? 'auto' : 1000,
-            minWidth: 767,
             minHeight: 500,
+            //backgroundColor: '#FFFF00',
+            overflowY: isMobile ? 'scroll' as 'scroll' : 'visible' as 'visible'
         },
         menuColumn: {
-            width: isMobile ? '98vw' : '4em',
+            width: isMobile ? '97vw' : '4em',
             height: isMobile ? '4em' : 1000,
             borderStyle: 'none',
             borderTopLeftRadius: 5,
@@ -37,7 +38,7 @@ export const App : React.FC = () => {
             alignItems: 'center'
         },
         pictureColumn: {
-            maxWidth: isMobile ? '98vw' : 600,
+            maxWidth: isMobile ? '97vw' : 600,
             maxHeight: isMobile ? 700 : 1000,
             height: isMobile ? 700 : 1000,
             width: isMobile ? '98vw' : '33vw',
@@ -48,9 +49,8 @@ export const App : React.FC = () => {
             justifyContent: 'center'
         },
         aboutColumn: {
-            flex: 8,
             maxWidth: 800,
-            width: isMobile ? '98vw' : '..',
+            width: isMobile ? '97vw' : '..',
             maxHeight: 1000,
             backgroundColor: Colors.backgroundGray,
             borderStyle: 'none',
