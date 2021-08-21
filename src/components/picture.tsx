@@ -19,6 +19,8 @@ export const PictureColumn : React.FC<PictureProps> = ({ parentStyle, isMobile }
             right: '5%',
             opacity: 0.7,
             padding: 20,
+            borderStyle: 'none',
+            borderRadius: 5,
             backgroundColor: Colors.backgroundTransparentGray,
             fontFamily: 'Roboto'
         },

@@ -39,7 +39,7 @@ export const App : React.FC = () => {
             maxWidth: isMobile ? '97vw' : 600,
             maxHeight: isMobile ? 700 : 1000,
             height: isMobile ? 700 : 1000,
-            width: isMobile ? '98vw' : '33vw',
+            width: isMobile ? '98vw' : '50vw',
             backgroundImage: `url(${image})`,
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'bottom',
