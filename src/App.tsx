@@ -8,13 +8,12 @@ import { PictureColumn } from './components/picture'
 import { AboutColumn } from './components/aboutMe'
 import { Colors } from './Colors'
 import image from './images/profile.png'
-import useWindowDimensions from './hooks/windowDimension' 
+import useIsMobile from './hooks/windowDimension' 
 
 export const App : React.FC = () => {
     //const number: number = useAppSelector((state: CombinedState<{ incrementReducer: IncrementState}>) => state.incrementReducer.number)
 
-    const { width } = useWindowDimensions()
-    const isMobile = width < 768
+    const isMobile = useIsMobile() 
 
     const styles = {
         app: {
@@ -22,9 +21,8 @@ export const App : React.FC = () => {
             flexDirection: isMobile ? 'column' as 'column' : 'row' as 'row',
             justifyContent: 'center',
             height: isMobile ? 'auto' : 1000,
-            minHeight: 500,
             //backgroundColor: '#FFFF00',
-            overflowY: isMobile ? 'scroll' as 'scroll' : 'visible' as 'visible'
+            //overflowY: isMobile ? 'scroll' as 'scroll' : 'visible' as 'visible'
         },
         menuColumn: {
             width: isMobile ? '97vw' : '4em',

@@ -10,17 +10,23 @@ function getWindowDimensions() : WindowDimension {
     return { width, height }
 }
 
-export default function useWindowDimensions() {
-    const [windowDimensions, setWindowDimensions] = useState<WindowDimension>(getWindowDimensions())
+function isMobileWidth(windowDimensions: WindowDimension) : boolean {
+    const { width } = windowDimensions
+    return width < 768
+}
+
+export default function useIsMobile() {
+    const [ isMobile, setIsMobile ] = useState<boolean>(isMobileWidth(getWindowDimensions()))
     
     useEffect(() => {
         function handleResize(){
-            setWindowDimensions(getWindowDimensions())
+            const _windowDimensions = getWindowDimensions()
+            const _isMobile = isMobileWidth(_windowDimensions)
+            setIsMobile(_isMobile)
         }
-
         window.addEventListener('resize', handleResize)
         return () => window.removeEventListener('resize', handleResize)
     }, [])
 
-    return windowDimensions
+    return isMobile
 }
