@@ -25,7 +25,7 @@ export const App : React.FC = () => {
             //overflowY: isMobile ? 'scroll' as 'scroll' : 'visible' as 'visible'
         },
         menuColumn: {
-            width: isMobile ? '97vw' : '4em',
+            width: isMobile ? '96vw' : '4em',
             height: isMobile ? '4em' : 1000,
             borderStyle: 'none',
             borderTopLeftRadius: 5,
@@ -36,10 +36,10 @@ export const App : React.FC = () => {
             alignItems: 'center'
         },
         pictureColumn: {
-            maxWidth: isMobile ? '97vw' : 600,
+            maxWidth: isMobile ? '96vw' : 600,
             maxHeight: isMobile ? 700 : 1000,
             height: isMobile ? 700 : 1000,
-            width: isMobile ? '98vw' : '50vw',
+            width: isMobile ? '97vw' : '50vw',
             backgroundImage: `url(${image})`,
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'bottom',
@@ -48,7 +48,7 @@ export const App : React.FC = () => {
         },
         aboutColumn: {
             maxWidth: 800,
-            width: isMobile ? '97vw' : '..',
+            width: isMobile ? '96vw' : '..',
             maxHeight: 1000,
             backgroundColor: Colors.backgroundGray,
             borderStyle: 'none',
