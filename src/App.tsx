@@ -9,6 +9,7 @@ import { AboutColumn } from './components/aboutMe'
 import { Colors } from './Colors'
 import image from './images/profile.png'
 import useIsMobile from './hooks/windowDimension' 
+import { Animated } from 'react-animated-css'
 
 export const App : React.FC = () => {
     //const number: number = useAppSelector((state: CombinedState<{ incrementReducer: IncrementState}>) => state.incrementReducer.number)
@@ -21,8 +22,6 @@ export const App : React.FC = () => {
             flexDirection: isMobile ? 'column' as 'column' : 'row' as 'row',
             justifyContent: 'center',
             height: isMobile ? 'auto' : 1000,
-            //backgroundColor: '#FFFF00',
-            //overflowY: isMobile ? 'scroll' as 'scroll' : 'visible' as 'visible'
         },
         menuColumn: {
             width: isMobile ? '96vw' : '4em',
@@ -62,7 +61,18 @@ export const App : React.FC = () => {
 
     return <div style={styles.app}>
             <MenuColumn parentStyle= {styles.menuColumn}  isMobile= {isMobile}/>
-            <PictureColumn parentStyle={styles.pictureColumn} isMobile = {isMobile}/>
+            <Animated
+                style={{ 
+                    position: 'relative',
+                    height: '100%' 
+                }}
+                animationIn='zoomIn'
+                animationInDuration={1000}
+                animationOut='rollOut'
+                animationOutDuration={5000}
+                isVisible={true}>
+                <PictureColumn parentStyle={styles.pictureColumn} isMobile = {isMobile}/>
+            </Animated>
             <AboutColumn parentStyle={styles.aboutColumn} isMobile = {isMobile}/>
         </div>
 

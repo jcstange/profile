@@ -2,6 +2,7 @@
 import React, { CSSProperties } from 'react'
 import { Colors } from '../Colors'
 import '@fontsource/roboto'
+import { Animated } from 'react-animated-css'
 
 type PictureProps = {
     parentStyle: CSSProperties,
@@ -27,15 +28,26 @@ export const PictureColumn : React.FC<PictureProps> = ({ parentStyle, isMobile }
     }
 
     return <div style={parentStyle}>
+            <Animated
+                style={{ 
+                    position: 'relative',
+                    height: '100%' 
+                }}
+                animationIn='slideInUp'
+                animationInDuration={1000}
+                animationOut='rollOut'
+                animationOutDuration={5000}
+                isVisible={true}>
         <div style={{ 
             position: 'relative',
             height: '100%' 
         }}>
-            <div style={styles.profession}>
-                <p style={{fontSize: '22'}}>Software Developer</p>
-                <p style={{fontSize: '16'}}>Based in Helsinki</p>
-                <p style={{fontSize: '16'}}>Android, iOS, Flutter, React, React Native</p>
-            </div> 
+                <div style={styles.profession}>
+                    <p style={{fontSize: '22'}}>Software Developer</p>
+                    <p style={{fontSize: '16'}}>Based in Helsinki</p>
+                    <p style={{fontSize: '16'}}>Android, iOS, Flutter, React, React Native</p>
+                </div> 
         </div>
+            </Animated>
     </div>
 }
