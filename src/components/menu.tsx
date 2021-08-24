@@ -1,5 +1,5 @@
 
-import React, { CSSProperties } from 'react'
+import React, { CSSProperties, useState } from 'react'
 import { Colors } from '../Colors'
 import { GitHub, LinkedIn } from '@material-ui/icons'
 import { ReactComponent as StackOverflow } from '../images/stackoverflow.svg'
@@ -29,8 +29,13 @@ export const MenuColumn : React.FC<MenuProps> = ({ parentStyle, isMobile }) => {
             verticalAlign: 'center',
             justifyContent: 'center',
         },
-        fade : "@keyframes fade { 0%: { opacity: 0 }, 25%: { opacity: 0.25}, 50%: { opacity: 0.5},75%: { opacity: 0.75}, 100%: { opacity: 1 } }" 
+        stackOverflow: {
+            color: Colors.red
+        },
+        fade: `@keyframes fade { 0%: { opacity: 0 }, 25%: { opacity: 0.25}, 50%: { opacity: 0.5 },75%: { opacity: 0.75 }, 100%: { opacity: 1 } }` 
     }
+
+    const [ buttonFocus, setButtonFocus] = useState<boolean>(false)
     
 
     return <div style={parentStyle}>
@@ -59,18 +64,22 @@ export const MenuColumn : React.FC<MenuProps> = ({ parentStyle, isMobile }) => {
                     <LinkedIn />
                 </Button>
             </Animated>
-            <Animated
-                animationIn='rollIn'
-                animationInDuration={1000}
-                animationOut='rollOut'
-                animationOutDuration={5000}
-                isVisible={true}>
-                <Button 
-                    style={{...styles.button, filter: 'invert(100%)'}}
-                    onClick={() => window.open("https://stackoverflow.com/users/7047737/j-stange")}>
-                    <StackOverflow />
-                </Button>
-            </Animated>
+            <Button 
+                style={{...styles.button, 
+                    filter: 'invert(100%)', 
+                    backgroundColor: buttonFocus ? Colors.red : Colors.blue,
+                    animation: `styles.fade 4s 4s`, 
+                    //animationDuration: '4000' 
+                }}
+                onClick={() => window.open("https://stackoverflow.com/users/7047737/j-stange")}
+                onMouseEnter={() => {
+                    setButtonFocus(true)
+                }}
+                onMouseLeave={() => {
+                    setButtonFocus(false)
+                }}>
+                <StackOverflow />
+            </Button>
         </div>
     </div>
 }
