@@ -46,9 +46,9 @@ export const App : React.FC = () => {
             justifyContent: 'center'
         },
         aboutColumn: {
-            maxWidth: 800,
+            maxWidth: 768,
             width: isMobile ? '96vw' : '..',
-            maxHeight: 1000,
+            maxHeight: isMobile ? 'auto': 1000,
             backgroundColor: Colors.backgroundGray,
             borderStyle: 'none',
             borderTopRightRadius: isMobile ? 0 : 5,

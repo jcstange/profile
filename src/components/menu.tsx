@@ -66,9 +66,8 @@ export const MenuColumn : React.FC<MenuProps> = ({ parentStyle, isMobile }) => {
             </Animated>
             <Button 
                 style={{...styles.button, 
-                    filter: 'invert(100%)', 
                     backgroundColor: buttonFocus ? Colors.red : Colors.blue,
-                    animation: `styles.fade 4s 4s`, 
+                    animation: `@keyframes fade { 0%: { opacity: 0 }, 25%: { opacity: 0.25}} 4s 4s`, 
                     //animationDuration: '4000' 
                 }}
                 onClick={() => window.open("https://stackoverflow.com/users/7047737/j-stange")}
@@ -78,7 +77,7 @@ export const MenuColumn : React.FC<MenuProps> = ({ parentStyle, isMobile }) => {
                 onMouseLeave={() => {
                     setButtonFocus(false)
                 }}>
-                <StackOverflow />
+                <StackOverflow fill="white"/>
             </Button>
         </div>
     </div>

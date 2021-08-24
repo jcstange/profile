@@ -43,9 +43,9 @@ export const PictureColumn : React.FC<PictureProps> = ({ parentStyle, isMobile }
             height: '100%' 
         }}>
                 <div style={styles.profession}>
-                    <p style={{fontSize: '22'}}>Software Developer</p>
-                    <p style={{fontSize: '16'}}>Based in Helsinki</p>
-                    <p style={{fontSize: '16'}}>Android, iOS, Flutter, React, React Native</p>
+                    <p style={{fontSize: 22}}>Software Developer</p>
+                    <p style={{fontSize: 16}}>Based in Helsinki</p>
+                    <p style={{fontSize: 16}}>Android, iOS, Flutter, React, React Native</p>
                 </div> 
         </div>
             </Animated>

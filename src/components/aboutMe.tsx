@@ -1,6 +1,9 @@
 
 import React, { CSSProperties } from 'react'
 import { Colors } from '../Colors'
+import { JobComponent } from './job'
+import { jobs } from '../data/jobs'
+import { Animated } from 'react-animated-css'
 import '@fontsource/roboto'
 
 type AboutProps = {
@@ -11,11 +14,12 @@ export const AboutColumn : React.FC<AboutProps> = ({ parentStyle, isMobile }) =>
 
     const styles = {
         aboutme: {
+            display: 'block',
             textAlign: 'left' as 'left',
             color: Colors.fontGray,
             fontFamily: 'Roboto',
-            margin:20,
-            maxHeight: isMobile ? 5000 : 810, // 850 - 20*2 padding
+            margin: 20,
+            maxHeight: isMobile ? 'auto' : 960, //1000 - 20*2 padding
             overflowY: isMobile ? 'visible' as 'visible' : 'scroll' as 'scroll'
         },
         h1: {
@@ -29,6 +33,22 @@ export const AboutColumn : React.FC<AboutProps> = ({ parentStyle, isMobile }) =>
             marginLeft: 30
         }
     }
+
+    function renderJobs() {
+        return jobs.map((i) => {
+            const index = jobs.indexOf(i)
+            const delay = 200 * index
+            return <Animated
+                animationIn='slideInUp'
+                animationInDuration={1000}
+                animationInDelay={delay}
+                animationOut='rollOut'
+                animationOutDuration={5000}
+                isVisible={true}>
+                <JobComponent job={i} />
+            </Animated>
+        })
+    }
     
     return <div style={ parentStyle }>
         <div style={styles.aboutme}>
@@ -40,41 +60,8 @@ export const AboutColumn : React.FC<AboutProps> = ({ parentStyle, isMobile }) =>
             <li style={styles.li}>React Native</li>
             <li style={styles.li}>React</li>
             <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
-            <p style={styles.p}>...</p>
+            <h1 style= {styles.h1}>Jobs</h1>
+            {renderJobs()}
         </div>
     </div>
 

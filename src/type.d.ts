@@ -16,3 +16,10 @@ type IncrementState = {
 }
 
 type DispatchType = (args: IndexActions) => IndexActions
+
+type Job = {
+    name: string,
+    time: string,
+    description: string,
+    platform: string
+}
