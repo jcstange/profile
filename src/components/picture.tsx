@@ -1,7 +1,7 @@
 
 import React, { CSSProperties } from 'react'
 import { Colors } from '../Colors'
-import '@fontsource/roboto'
+import '@fontsource/jetbrains-mono'
 import { Animated } from 'react-animated-css'
 
 type PictureProps = {
@@ -23,7 +23,7 @@ export const PictureColumn : React.FC<PictureProps> = ({ parentStyle, isMobile }
             borderStyle: 'none',
             borderRadius: 5,
             backgroundColor: Colors.backgroundTransparentGray,
-            fontFamily: 'Roboto'
+            fontFamily: 'Jetbrains Mono'
         },
     }
 

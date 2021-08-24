@@ -1,7 +1,7 @@
 import React from 'react'
 import { Colors } from '../Colors'
-import '@fontsource/roboto'
 import '@fontsource/jetbrains-mono'
+import { ReactComponent as Android } from '../images/android.svg'
 
 type JobProps = {
     job: Job
@@ -43,12 +43,17 @@ export const JobComponent : React.FC<JobProps> = ({ job }) => {
             fontStyle: 'italic',
             marginBottom: 10
         },
+        svg: {
+            width: 24,
+            height: 24
+        }
     }
 
     return (
         <div style={styles.item}>
             <div style={styles.name}>&gt; {job.name}</div>
-            <div style={styles.time}>{job.time}</div>
+            <Android style={styles.svg} fill="white" />
+            <div style={styles.time}>...{job.time}...</div>
             <div style={styles.description}>{job.description}</div>
             <div style={styles.platform}>{job.platform}</div>
         </div>

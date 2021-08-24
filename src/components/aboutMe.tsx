@@ -4,7 +4,7 @@ import { Colors } from '../Colors'
 import { JobComponent } from './job'
 import { jobs } from '../data/jobs'
 import { Animated } from 'react-animated-css'
-import '@fontsource/roboto'
+import '@fontsource/jetbrains-mono'
 
 type AboutProps = {
     parentStyle: CSSProperties,
@@ -17,7 +17,7 @@ export const AboutColumn : React.FC<AboutProps> = ({ parentStyle, isMobile }) =>
             display: 'block',
             textAlign: 'left' as 'left',
             color: Colors.fontGray,
-            fontFamily: 'Roboto',
+            fontFamily: 'Jetbrains Mono',
             margin: 20,
             maxHeight: isMobile ? 'auto' : 960, //1000 - 20*2 padding
             overflowY: isMobile ? 'visible' as 'visible' : 'scroll' as 'scroll'
