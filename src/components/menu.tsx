@@ -1,5 +1,5 @@
 
-import React, { CSSProperties, useState } from 'react'
+import React, { CSSProperties } from 'react'
 import { Colors } from '../Colors'
 import { GitHub, LinkedIn } from '@material-ui/icons'
 import { ReactComponent as StackOverflow } from '../images/stackoverflow.svg'
@@ -35,14 +35,12 @@ export const MenuColumn : React.FC<MenuProps> = ({ parentStyle, isMobile }) => {
         fade: `@keyframes fade { 0%: { opacity: 0 }, 25%: { opacity: 0.25}, 50%: { opacity: 0.5 },75%: { opacity: 0.75 }, 100%: { opacity: 1 } }` 
     }
 
-    const [ buttonFocus, setButtonFocus] = useState<boolean>(false)
-    
-
     return <div style={parentStyle}>
         <div style={styles.links}>
             <Animated
                 animationIn='rollIn'
                 animationInDuration={1000}
+                animationInDelay={1000}
                 animationOut='rollOut'
                 animationOutDuration={5000}
                 isVisible={true}>
@@ -55,6 +53,7 @@ export const MenuColumn : React.FC<MenuProps> = ({ parentStyle, isMobile }) => {
             <Animated
                 animationIn='rollIn'
                 animationInDuration={1000}
+                animationInDelay={500}
                 animationOut='rollOut'
                 animationOutDuration={5000}
                 isVisible={true}>
@@ -64,21 +63,22 @@ export const MenuColumn : React.FC<MenuProps> = ({ parentStyle, isMobile }) => {
                     <LinkedIn />
                 </Button>
             </Animated>
-            <Button 
-                style={{...styles.button, 
-                    backgroundColor: buttonFocus ? Colors.red : Colors.blue,
-                    animation: `@keyframes fade { 0%: { opacity: 0 }, 25%: { opacity: 0.25}} 4s 4s`, 
-                    //animationDuration: '4000' 
-                }}
-                onClick={() => window.open("https://stackoverflow.com/users/7047737/j-stange")}
-                onMouseEnter={() => {
-                    setButtonFocus(true)
-                }}
-                onMouseLeave={() => {
-                    setButtonFocus(false)
-                }}>
-                <StackOverflow fill="white"/>
-            </Button>
+            <Animated
+                animationIn='rollIn'
+                animationInDuration={1000}
+                animationOut='rollOut'
+                animationOutDuration={5000}
+                isVisible={true}>
+                <Button 
+                    style={{...styles.button, 
+                        animation: `@keyframes fade { 0%: { opacity: 0 }, 25%: { opacity: 0.25}} 4s 4s`, 
+                        //animationDuration: '4000' 
+                    }}
+                    onClick={() => window.open("https://stackoverflow.com/users/7047737/j-stange")}
+                    >
+                    <StackOverflow fill="white"/>
+                </Button>
+            </Animated>
         </div>
     </div>
 }

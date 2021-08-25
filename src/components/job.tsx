@@ -8,6 +8,7 @@ type JobProps = {
 }
 
 export const JobComponent : React.FC<JobProps> = ({ job }) => {
+    
     const styles = {
         item: {
             borderStyle: 'none',
