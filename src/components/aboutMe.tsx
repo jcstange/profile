@@ -5,6 +5,11 @@ import { JobComponent } from './job'
 import { jobs } from '../data/jobs'
 import { Animated } from 'react-animated-css'
 import '@fontsource/jetbrains-mono'
+import { ReactComponent as Apple } from '../images/apple.svg'
+import { ReactComponent as Android } from '../images/android.svg'
+import { ReactComponent as Flutter } from '../images/flutter.svg'
+import { ReactComponent as React2 } from '../images/react.svg'
+import { ReactComponent as Firebase } from '../images/firebase.svg'
 
 type AboutProps = {
     parentStyle: CSSProperties,
@@ -17,21 +22,27 @@ export const AboutColumn : React.FC<AboutProps> = ({ parentStyle, isMobile }) =>
             display: 'block',
             textAlign: 'left' as 'left',
             color: Colors.fontGray,
-            fontFamily: 'Jetbrains Mono',
             margin: 20,
             maxHeight: isMobile ? 'auto' : 960, //1000 - 20*2 padding
             overflowY: isMobile ? 'visible' as 'visible' : 'scroll' as 'scroll'
         },
         h1: {
-            fontSize: '30',
+            fontSize: 30,
+            fontFamily: 'Jetbrains Mono',
         },
         p: {
-            fontSize: '22',
+            fontSize: 22,
+            fontFamily: 'Jetbrains Mono',
         },
-        li: {
-            fontSize: '22',
-            marginLeft: 30
-        }
+        p2: {
+            fontSize: 12,
+            fontFamily: 'Jetbrains Mono',
+        },
+        svgs: {
+            width: 24,
+            height: 24,
+            padding: 12
+        } 
     }
 
     function renderJobs() {
@@ -53,14 +64,21 @@ export const AboutColumn : React.FC<AboutProps> = ({ parentStyle, isMobile }) =>
     return <div style={ parentStyle }>
         <div style={styles.aboutme}>
             <h1 style= {styles.h1}>About me </h1>
-            <p style={styles.p}>Senior Software Developer and Freelancer</p>
-            <li style={styles.li}>Android</li>
-            <li style={styles.li}>iOS</li>
-            <li style={styles.li}>Flutter</li>
-            <li style={styles.li}>React Native</li>
-            <li style={styles.li}>React</li>
-            <p style={styles.p}>...</p>
-            <h1 style= {styles.h1}>Jobs</h1>
+            <p style={styles.p}>Senior Software Developer and Professional Scrum Master</p>
+            <p style={styles.p2}>
+                I've made this website to test my React skills. It ended up getting quite interesting and I decided to make my "portifolio" on top of it. I'm originally from Brazil and moved to Finland in 2016 looking for a safer place, where I don't need to complain everyday about the government.<br/> 
+                Fortunately this land embraced me and provided me with nice jobs and a family. <br/><br/>
+                As a developer, I like to learn and experiment with different frameworks and languages. Between my projects I've been focusing in front-end development but I like to advertise my skills as a fullstack developer, since back-end is also pretty interesting.<br/><br/>
+                If you feel interested, check out the platforms and the projects I've been working with, and also the links to my professional (social) networks.
+                </p>
+            <div style={{display:'flex'}}>
+                <Android style={styles.svgs}/>
+                <Flutter style={styles.svgs}/>
+                <React2 style={styles.svgs}/>
+                <Apple style={styles.svgs}/>
+                <Firebase style={styles.svgs}/>
+            </div>
+            <h1 style= {styles.h1}>Projects</h1>
             {renderJobs()}
         </div>
     </div>

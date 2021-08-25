@@ -19,7 +19,9 @@ type DispatchType = (args: IndexActions) => IndexActions
 
 type Job = {
     name: string,
+    link: string,
     time: string,
+    icons: string[],
     description: string,
     platform: string
 }

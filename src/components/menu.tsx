@@ -1,5 +1,5 @@
 
-import React, { CSSProperties } from 'react'
+import React, { CSSProperties, useState } from 'react'
 import { Colors } from '../Colors'
 import { GitHub, LinkedIn } from '@material-ui/icons'
 import { ReactComponent as StackOverflow } from '../images/stackoverflow.svg'
@@ -28,12 +28,12 @@ export const MenuColumn : React.FC<MenuProps> = ({ parentStyle, isMobile }) => {
             alignSelf: 'center',
             verticalAlign: 'center',
             justifyContent: 'center',
-        },
-        stackOverflow: {
-            color: Colors.red
-        },
-        fade: `@keyframes fade { 0%: { opacity: 0 }, 25%: { opacity: 0.25}, 50%: { opacity: 0.5 },75%: { opacity: 0.75 }, 100%: { opacity: 1 } }` 
+        }
     }
+
+    const [ stackHover, setStackHover ] = useState<boolean>(false)
+    const [ gitHover, setGitHover ] = useState<boolean>(false)
+    const [ linkedInHover, setLinkedInHover ] = useState<boolean>(false)
 
     return <div style={parentStyle}>
         <div style={styles.links}>
@@ -45,9 +45,11 @@ export const MenuColumn : React.FC<MenuProps> = ({ parentStyle, isMobile }) => {
                 animationOutDuration={5000}
                 isVisible={true}>
                 <Button 
-                    style={styles.button}
-                    onClick={() => window.open("https://github.com/jcstange")}>
-                    <GitHub />
+                    style={{...styles.button, backgroundColor: gitHover ? Colors.black : 'transparent'}}
+                    onClick={() => window.open("https://github.com/jcstange")}
+                    onMouseEnter={()=> setGitHover(true)}
+                    onMouseLeave= {() => setGitHover(false)}>
+                    <GitHub fill="white"/>
                 </Button>
             </Animated>
             <Animated
@@ -58,9 +60,12 @@ export const MenuColumn : React.FC<MenuProps> = ({ parentStyle, isMobile }) => {
                 animationOutDuration={5000}
                 isVisible={true}>
                 <Button 
-                    style={styles.button}
-                    onClick={() => window.open("https://www.linkedin.com/in/joao-cesar-stange-0a159223/")}>
-                    <LinkedIn />
+                    style={{...styles.button, backgroundColor: linkedInHover ? Colors.black : 'transparent'}}
+                    onClick={() => window.open("https://www.linkedin.com/in/joao-cesar-stange-0a159223/")}
+                    onMouseEnter={()=> setLinkedInHover(true)}
+                    onMouseLeave= {() => setLinkedInHover(false)}>
+                    <LinkedIn 
+                        fill="white"/>
                 </Button>
             </Animated>
             <Animated
@@ -70,12 +75,10 @@ export const MenuColumn : React.FC<MenuProps> = ({ parentStyle, isMobile }) => {
                 animationOutDuration={5000}
                 isVisible={true}>
                 <Button 
-                    style={{...styles.button, 
-                        animation: `@keyframes fade { 0%: { opacity: 0 }, 25%: { opacity: 0.25}} 4s 4s`, 
-                        //animationDuration: '4000' 
-                    }}
+                    style={{...styles.button, backgroundColor: stackHover ? Colors.black : 'transparent'}}
                     onClick={() => window.open("https://stackoverflow.com/users/7047737/j-stange")}
-                    >
+                    onMouseEnter={()=> setStackHover(true)}
+                    onMouseLeave= {() => setStackHover(false)}>
                     <StackOverflow fill="white"/>
                 </Button>
             </Animated>
