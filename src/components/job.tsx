@@ -2,12 +2,21 @@ import React from 'react'
 import { Colors } from '../Colors'
 import '@fontsource/jetbrains-mono'
 import useTypingEffect from '../hooks/typing'
+import injectStyle from '../utils/injectStyle'
 
 type JobProps = {
     job: Job
 }
 
 export const JobComponent : React.FC<JobProps> = ({ job }) => {
+    
+    const keyframesStyle = `
+    @-webkit-keyframes spin {
+        from { transform: rotateY(0deg); }
+        to { transform: rotateY(360deg); }
+    }
+    `;
+    injectStyle(keyframesStyle)
 
     const styles = {
         item: {
@@ -45,17 +54,17 @@ export const JobComponent : React.FC<JobProps> = ({ job }) => {
             marginBottom: 10
         },
         svg: {
-            width: 24,
-            height: 24
+            width: 32,
+            height: 32,
+            padding: 5,
+            animation: `spin 3s linear infinite`
         }
     }
 
     function renderIcons() {
         return job.icons.map((i) => { 
-            console.log(i)
-            //return <img src={`${i}`} alt="icon" /> 
             const image = require('../images/' + i)
-            return <img src={image.default} height="24" width="24" alt="icon" /> 
+            return <img src={image.default} style={styles.svg} alt="icon" /> 
         })
     }
 
