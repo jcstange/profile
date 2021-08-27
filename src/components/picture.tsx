@@ -3,13 +3,13 @@ import React, { CSSProperties } from 'react'
 import { Colors } from '../Colors'
 import '@fontsource/jetbrains-mono'
 import { Animated } from 'react-animated-css'
+import { data } from '../data/jobs'
 import useTypingEffect from '../hooks/typing'
 
 type PictureProps = {
     parentStyle: CSSProperties,
-    isMobile: boolean 
 }
-export const PictureColumn : React.FC<PictureProps> = ({ parentStyle, isMobile }) => {
+export const PictureColumn : React.FC<PictureProps> = ({ parentStyle }) => {
 
     const styles = {
         profession: {
@@ -28,9 +28,9 @@ export const PictureColumn : React.FC<PictureProps> = ({ parentStyle, isMobile }
         },
     }
 
-    const profession = useTypingEffect("Software Developer",200)
-    const location = useTypingEffect("Based in Helsinki",200)
-    const expertise = useTypingEffect("Android, iOS, Flutter, React, React Native", 100)
+    const profession = useTypingEffect(data.profession,200)
+    const location = useTypingEffect(data.location,200)
+    const expertise = useTypingEffect(data.platforms,100)
     //const expertise = "Android, iOS, Flutter, React, React Native"
 
     return <div style={parentStyle}>

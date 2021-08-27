@@ -5,6 +5,7 @@ import { GitHub, LinkedIn } from '@material-ui/icons'
 import { ReactComponent as StackOverflow } from '../images/stackoverflow.svg'
 import { Button } from '@material-ui/core'
 import { Animated } from 'react-animated-css'
+import { data } from '../data/jobs'
 
 
 type MenuProps = {
@@ -46,7 +47,7 @@ export const MenuColumn : React.FC<MenuProps> = ({ parentStyle, isMobile }) => {
                 isVisible={true}>
                 <Button 
                     style={{...styles.button, backgroundColor: gitHover ? Colors.black : 'transparent'}}
-                    onClick={() => window.open("https://github.com/jcstange")}
+                    onClick={() => window.open(data.links.github)}
                     onMouseEnter={()=> setGitHover(true)}
                     onMouseLeave= {() => setGitHover(false)}>
                     <GitHub fill="white"/>
@@ -61,7 +62,7 @@ export const MenuColumn : React.FC<MenuProps> = ({ parentStyle, isMobile }) => {
                 isVisible={true}>
                 <Button 
                     style={{...styles.button, backgroundColor: linkedInHover ? Colors.black : 'transparent'}}
-                    onClick={() => window.open("https://www.linkedin.com/in/joao-cesar-stange-0a159223/")}
+                    onClick={() => window.open(data.links.linkedIn)}
                     onMouseEnter={()=> setLinkedInHover(true)}
                     onMouseLeave= {() => setLinkedInHover(false)}>
                     <LinkedIn 
@@ -76,7 +77,7 @@ export const MenuColumn : React.FC<MenuProps> = ({ parentStyle, isMobile }) => {
                 isVisible={true}>
                 <Button 
                     style={{...styles.button, backgroundColor: stackHover ? Colors.black : 'transparent'}}
-                    onClick={() => window.open("https://stackoverflow.com/users/7047737/j-stange")}
+                    onClick={() => window.open(data.links.stackoverflow)}
                     onMouseEnter={()=> setStackHover(true)}
                     onMouseLeave= {() => setStackHover(false)}>
                     <StackOverflow fill="white"/>

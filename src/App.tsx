@@ -71,7 +71,7 @@ export const App : React.FC = () => {
                 animationOut='rollOut'
                 animationOutDuration={5000}
                 isVisible={true}>
-                <PictureColumn parentStyle={styles.pictureColumn} isMobile = {isMobile}/>
+                <PictureColumn parentStyle={styles.pictureColumn} />
             </Animated>
             <AboutColumn parentStyle={styles.aboutColumn} isMobile = {isMobile}/>
         </div>

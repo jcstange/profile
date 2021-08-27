@@ -1,4 +1,3 @@
-
 export const jobs : Job[]= [
     {    
         name: "Integrata (Hum Hum HR)",
@@ -58,3 +57,17 @@ export const jobs : Job[]= [
     },
 
 ]
+export const data = {
+    name: "João Cesar Stange",
+    profession: "Software Developer",
+    location: "Based in Helsinki",
+    platforms: "Android, Flutter, React, React Native, iOS",
+    aboutMeTitle: "Senior Software Developer & Professional Scrum Master",
+    aboutMeDescription: "I've made this website to test my React skills. It ended up getting quite interesting and I decided to make my \"portfolio\" on top of it. I'm originally from Brazil and moved to Finland in 2016 looking for a safer place, where I don't need to complain everyday about the government.\nFortunately this land embraced me and provided me with nice jobs and a family.\n\nAs a developer, I like to learn and experiment with different frameworks and languages. Between my projects I've been focusing in front-end development but I like to advertise my skills as a fullstack developer, since back-end is also pretty interesting.\n\nIf you feel interested, check out the platforms and the projects I've been working with, and also the links to my professional (social) networks.",
+    jobs: jobs,
+    links: {
+        github: "https://github.com/jcstange",
+        stackoverflow: "https://www.linkedin.com/in/joao-cesar-stange-0a159223/",
+        linkedIn: "https://stackoverflow.com/users/7047737/j-stange"
+    }
+}

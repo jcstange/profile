@@ -37,19 +37,19 @@ export const JobComponent : React.FC<JobProps> = ({ job }) => {
         },
         time: {
             fontFamily: 'Jetbrains Mono',
-            fontSize: 12,
+            fontSize: 10,
             fontWeigth: 'bold',
             marginBottom: 10
         },
         description: {
             fontFamily: 'Jetbrains Mono',
-            fontSize: 16,
+            fontSize: 12,
             fontWeigth: 'bold',
             marginBottom: 10
         },
         platform: {
             fontFamily: 'Jetbrains Mono',
-            fontSize: 14,
+            fontSize: 12,
             fontStyle: 'italic',
             marginBottom: 10
         },
