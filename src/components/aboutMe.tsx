@@ -38,6 +38,7 @@ export const AboutColumn : React.FC<AboutProps> = ({ parentStyle, isMobile }) =>
         p2: {
             fontSize: 12,
             fontFamily: 'Jetbrains Mono',
+            whiteSpace: 'pre-line' as 'pre-line'
         },
         svgs: {
             width: 24,
@@ -66,8 +67,7 @@ export const AboutColumn : React.FC<AboutProps> = ({ parentStyle, isMobile }) =>
         <div style={styles.aboutme}>
             <h1 style= {styles.h1}>{data.name}</h1>
             <p style={styles.p}>{data.aboutMeTitle}</p>
-            <p style={styles.p2}>{data.aboutMeDescription.replace("\n","penis" )}
-                </p>
+            <p style={styles.p2}>{data.aboutMeDescription}</p>
             <div style={{display:'flex'}}>
                 <Android style={styles.svgs}/>
                 <Flutter style={styles.svgs}/>
@@ -81,11 +81,3 @@ export const AboutColumn : React.FC<AboutProps> = ({ parentStyle, isMobile }) =>
     </div>
 
 }
-/*
-            <p style={styles.p2}>{data.aboutMeDescription.replace("/n", "<br/>")}
-                I've made this website to test my React skills. It ended up getting quite interesting and I decided to make my "portifolio" on top of it. I'm originally from Brazil and moved to Finland in 2016 looking for a safer place, where I don't need to complain everyday about the government.<br/> 
-                Fortunately this land embraced me and provided me with nice jobs and a family. <br/><br/>
-                As a developer, I like to learn and experiment with different frameworks and languages. Between my projects I've been focusing in front-end development but I like to advertise my skills as a fullstack developer, since back-end is also pretty interesting.<br/><br/>
-                If you feel interested, check out the platforms and the projects I've been working with, and also the links to my professional (social) networks.
-                </p>
-                */
