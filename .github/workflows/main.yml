@@ -29,6 +29,7 @@ jobs:
 
       - name: Build web
         run: |
+          npm i react-animated-css --save
           yarn install
           yarn react-scripts --openssl-legacy-provider build
       - name: Publish it gh-pages
