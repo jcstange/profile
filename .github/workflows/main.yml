@@ -28,21 +28,19 @@ jobs:
         run: |
           npm install
           npm run build
-     # - name: Publish it gh-pages   
-     #   run: |
-     #     cd build
-     #     git init .
-     #     git config --global user.email jcstange@gmail.com
-     #     git config --global user.name jcstange
-     #     git status
-     #     git remote add origin git@github.com:jcstange/profile.git
-     #     git checkout -b gh-pages
-     #     git add --all
-     #     git commit -m "gh-pages-update"
-     #     git push origin gh-pages -f
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          deploy_key: ${{ secrets.DEPLOY_KEY }}
-          publish_dir: ./build
-
+      - name: Publish it gh-pages   
+        run: |
+          cd build
+          git init .
+          git config --global user.email jcstange@gmail.com
+          git config --global user.name jcstange
+          git status
+          mkdir -p ~/.ssh/
+          echo "${{ secrets.DEPLOY_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          git remote add origin git@github.com:jcstange/profile.git
+          git checkout -b gh-pages
+          git add --all
+          git commit -m "gh-pages-update"
+          git push origin gh-pages -f
