@@ -19,30 +19,30 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    env:
-      secrets: ${{ secrets.ACCESS_TOKEN }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-        with:
-         deploy_key: ${{ secrets.DEPLOY_KEY }}
       - name: Build web
         run: |
           npm install
           npm run build
-      - name: Publish it gh-pages
-        
-        run: |
-          cd build
-          git init .
-          git config --global user.email jcstange@gmail.com
-          git config --global user.name jcstange
-          git status
-          git remote add origin git@github.com:jcstange/profile.git
-          git checkout -b gh-pages
-          git add --all
-          git commit -m "gh-pages-update"
-          git push origin gh-pages -f
+     # - name: Publish it gh-pages   
+     #   run: |
+     #     cd build
+     #     git init .
+     #     git config --global user.email jcstange@gmail.com
+     #     git config --global user.name jcstange
+     #     git status
+     #     git remote add origin git@github.com:jcstange/profile.git
+     #     git checkout -b gh-pages
+     #     git add --all
+     #     git commit -m "gh-pages-update"
+     #     git push origin gh-pages -f
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.DEPLOY_KEY }}
+          publish_dir: ./build
 
