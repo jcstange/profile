@@ -30,7 +30,7 @@ jobs:
       - name: Build web
         run: |
           yarn install
-          yarn react-scripts build
+          yarn build
       - name: Publish it gh-pages
         run: |
           cd build
