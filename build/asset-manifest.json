@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/profile/static/css/main.d8e6d09f.chunk.css",
+    "main.js": "/profile/static/js/main.a9b9e94c.chunk.js",
+    "main.js.map": "/profile/static/js/main.a9b9e94c.chunk.js.map",
+    "runtime-main.js": "/profile/static/js/runtime-main.242c908d.js",
+    "runtime-main.js.map": "/profile/static/js/runtime-main.242c908d.js.map",
+    "static/css/2.55eb92db.chunk.css": "/profile/static/css/2.55eb92db.chunk.css",
+    "static/js/2.fe9aaff5.chunk.js": "/profile/static/js/2.fe9aaff5.chunk.js",
+    "static/js/2.fe9aaff5.chunk.js.map": "/profile/static/js/2.fe9aaff5.chunk.js.map",
+    "index.html": "/profile/index.html",
+    "static/css/2.55eb92db.chunk.css.map": "/profile/static/css/2.55eb92db.chunk.css.map",
+    "static/css/main.d8e6d09f.chunk.css.map": "/profile/static/css/main.d8e6d09f.chunk.css.map",
+    "static/js/2.fe9aaff5.chunk.js.LICENSE.txt": "/profile/static/js/2.fe9aaff5.chunk.js.LICENSE.txt",
+    "static/media/android.svg": "/profile/static/media/android.8ff172bb.svg",
+    "static/media/apple.svg": "/profile/static/media/apple.6e8e42e3.svg",
+    "static/media/firebase.svg": "/profile/static/media/firebase.e6583a29.svg",
+    "static/media/flutter.svg": "/profile/static/media/flutter.9a496ae2.svg",
+    "static/media/index.css": "/profile/static/media/jetbrains-mono-vietnamese-400-normal.cede87da.woff2",
+    "static/media/profile.png": "/profile/static/media/profile.1750be80.png",
+    "static/media/react.svg": "/profile/static/media/react.e68b35f4.svg",
+    "static/media/stackoverflow.svg": "/profile/static/media/stackoverflow.a6de3658.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.242c908d.js",
+    "static/css/2.55eb92db.chunk.css",
+    "static/js/2.fe9aaff5.chunk.js",
+    "static/css/main.d8e6d09f.chunk.css",
+    "static/js/main.a9b9e94c.chunk.js"
+  ]
+}

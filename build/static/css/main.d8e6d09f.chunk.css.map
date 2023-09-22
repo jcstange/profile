@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/index.css"],"names":[],"mappings":"AAEA,MACI,WAAY,CACZ,eAAgB,CAChB,eACJ","file":"main.d8e6d09f.chunk.css","sourcesContent":["\n/* Global CSS styles */\n#root{\n    height: 100%; \n    min-height: 100%;\n    overflow: hidden;\n}\n"]}
