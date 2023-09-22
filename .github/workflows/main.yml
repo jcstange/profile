@@ -35,8 +35,6 @@ jobs:
           echo "${{ secrets.DEPLOY_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan github.com >> ~/.ssh/known_hosts
-          ssh-add ~/.ssh/id_rsa
-          ssh -T -p 443 git@ssh.github.com
           git config --global user.email jcstange@gmail.com
           git config --global user.name jcstange
           git status
