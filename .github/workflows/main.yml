@@ -19,27 +19,34 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    env:
-      secrets: ${{ secrets.ACCESS_TOKEN }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
       - name: Build web
         run: |
-          yarn install
-          yarn react-scripts build
-      - name: Publish it gh-pages
+          npm install
+          npm run build
+      - name: Set up SSH agent
         run: |
-          cd build
-          git init .
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          eval "$(ssh-agent -s)"
+          ssh-add ~/.ssh/id_rsa
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
+      - name: Publish it gh-pages   
+        run: |
           git config --global user.email jcstange@gmail.com
           git config --global user.name jcstange
-          git status
-          git remote add origin https://${{secrets.ACCESS_TOKEN}}@github.com/jcstange/profile.git
+          git remote add gh-pages git@github.com:jcstange/profile.git
+          git fetch gh-pages
           git checkout -b gh-pages
-          git add --all
-          git commit -m "gh-pages-update"
-          git push origin gh-pages -f
+          git rm -rf .
+          cp -r build/* .
+          git add .
+          git commit -m "Deploy to GitHub Pages"
+          git push -u gh-pages gh-pages -f
