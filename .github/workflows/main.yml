@@ -30,7 +30,7 @@ jobs:
       - name: Build web
         run: |
           yarn install
-          yarn build
+          yarn react-scripts --openssl-legacy-provider build
       - name: Publish it gh-pages
         run: |
           cd build
