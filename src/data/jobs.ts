@@ -1,4 +1,12 @@
 export const jobs : Job[]= [
+    {
+        name: "Spotify",
+        link: "https://play.google.com/store/apps/details?id=com.spotify.music&hl=en&gl=US&pli=1",
+        time: "1 year 6 months",
+        icons: [ "android.svg", "apple.svg" ],
+        description: "Android and iOS developer on CarX. Developing a drive \"safe\" solution for Spotify, like CarMode, and improving external integrations API, allowing other apps or devices to connect and control Spotify (Google Maps, Waze, Android Auto, CarPlay, etc)",
+        platform: "Android, Android Auto, iOS, CarPlay"
+    },
     {    
         name: "Integrata (Hum Hum HR)",
         link: "https://play.google.com/store/apps/details?id=app.integrata.humhum",
@@ -55,7 +63,14 @@ export const jobs : Job[]= [
         description: "Oura the health ring. Worked mainly with the integration between ring and mobile via bluetooth, and developing some of the screens",
         platform: "Android, Java, Kotlin, MVP, RXJava2"
     },
-
+    {
+        name: "Silicon Labs",
+        link: "",
+        time: "1 year 8 months",
+        icons: [ "android.svg", "apple.svg" ],
+        description: "Adding features to Gecko App and porting Bluetooth Mesh Stack to Mobile platforms and its APIs",
+        platform: "Android, Java, iOS, Swift, C, Python, Embedded"
+    }
 ]
 export const data = {
     name: "João Stange",
@@ -67,7 +82,7 @@ export const data = {
     jobs: jobs,
     links: {
         github: "https://github.com/jcstange",
-        stackoverflow: "https://www.linkedin.com/in/joao-cesar-stange-0a159223/",
-        linkedIn: "https://stackoverflow.com/users/7047737/j-stange"
+        stackoverflow: "https://stackoverflow.com/users/7047737/j-stange",
+        linkedIn: "https://www.linkedin.com/in/joao-cesar-stange-0a159223/",
     }
 }
