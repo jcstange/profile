@@ -28,13 +28,18 @@ jobs:
         run: |
           npm install
           npm run build
-      - name: Publish it gh-pages   
+      - name: Set up SSH agent
         run: |
-          mkdir -p ~/.ssh/
-          echo "${{ secrets.DEPLOY_KEY }}"
-          echo "${{ secrets.DEPLOY_KEY }}" > ~/.ssh/id_rsa
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan github.com >> ~/.ssh/known_hosts
+          eval "$(ssh-agent -s)"
+          ssh-add ~/.ssh/id_rsa
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
+      - name: Publish it gh-pages   
+        run: |
           git config --global user.email jcstange@gmail.com
           git config --global user.name jcstange
           git status
